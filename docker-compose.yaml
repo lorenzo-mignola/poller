@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: poller
+      POSTGRES_USER: poller
+      POSTGRES_DB: poller
+    ports:
+    - 5432:5432
+    volumes:
+    - c:\docker-volumes\poller-sql:/var/lib/postgresql/data
