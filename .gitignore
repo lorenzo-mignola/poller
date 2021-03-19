@@ -5,3 +5,5 @@ dist
 build
 dist-ssr
 *.local
+tmp/
+temp/
