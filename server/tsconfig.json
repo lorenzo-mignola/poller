@@ -3,9 +3,10 @@
     "lib": [
       "es5",
       "es6",
-      "ES2020"
+      "ES2020",
+      "esnext.asynciterable"
     ],
-    "target": "es6",
+    "target": "es2018",
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./build",

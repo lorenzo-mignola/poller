@@ -1,11 +1,11 @@
-import { Connection, createConnection } from 'typeorm';
+import { createConnection, useContainer } from 'typeorm';
+import { Container } from 'typeorm-typedi-extensions';
 import logger from '../logger';
-
-let connection: Connection | null = null;
 
 const startConnection = async () => {
   try {
-    connection = await createConnection();
+    useContainer(Container);
+    const connection = await createConnection();
     if (connection.isConnected) {
       logger.info('Connected to db');
     }
@@ -14,4 +14,4 @@ const startConnection = async () => {
   }
 };
 
-export { startConnection, connection };
+export { startConnection };

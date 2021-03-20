@@ -1,4 +1,6 @@
+import { Field, ID, ObjectType } from 'type-graphql';
 import {
+  BaseEntity,
   Column,
   Entity,
   PrimaryGeneratedColumn,
@@ -6,15 +8,17 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Poll {
+@ObjectType()
+export class Poll extends BaseEntity {
   @PrimaryGeneratedColumn()
+  @Field(type => ID)
   id!: number;
 
   @Column()
+  @Field()
   name!: string;
 
   @UpdateDateColumn()
+  @Field()
   updatedDate!: Date;
-
-  constructor() {}
 }
