@@ -13,3 +13,13 @@ services:
     - 5432:5432
     volumes:
     - c:\docker-volumes\poller-sql:/var/lib/postgresql/data
+
+  server:
+    depends_on:
+    - db
+    build: ./server
+    restart: always
+    environment: 
+      PORT: 3030
+    ports:
+    - 3030:3030

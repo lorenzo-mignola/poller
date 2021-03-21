@@ -11,6 +11,7 @@ const startConnection = async () => {
     }
   } catch (error) {
     logger.error('Error during connection to db', error);
+    throw new Error('No DB connection');
   }
 };
 
