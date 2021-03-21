@@ -3,10 +3,10 @@
 ## Tecnologie
 
 - postgres
-- fastify
 - graphql
 - vue
 - typescript
+- nginx
 
 ## Pacchetti
 
