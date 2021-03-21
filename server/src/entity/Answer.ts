@@ -1,9 +1,8 @@
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
-  Column,
   Entity,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
@@ -11,23 +10,16 @@ import { Question } from './Question';
 
 @Entity()
 @ObjectType()
-export class Poll extends BaseEntity {
+export class Answer extends BaseEntity {
   @PrimaryGeneratedColumn()
   @Field(type => ID)
   id!: number;
-
-  @Column()
-  @Field()
-  name!: string;
 
   @UpdateDateColumn()
   @Field()
   updatedDate!: Date;
 
-  @OneToMany(type => Question, question => question.poll, {
-    // eager: true,
-    onDelete: 'CASCADE'
-  })
-  @Field(type => [Question])
-  questions!: Promise<Question[]>;
+  @Field(type => Question)
+  @ManyToOne(type => Question, question => question.id)
+  question!: Promise<Question>;
 }

@@ -3,31 +3,37 @@ import {
   BaseEntity,
   Column,
   Entity,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-import { Question } from './Question';
+import { Answer } from './Answer';
+import { Poll } from './Poll';
 
 @Entity()
 @ObjectType()
-export class Poll extends BaseEntity {
+export class Question extends BaseEntity {
   @PrimaryGeneratedColumn()
   @Field(type => ID)
   id!: number;
 
   @Column()
   @Field()
-  name!: string;
+  text!: string;
 
   @UpdateDateColumn()
   @Field()
   updatedDate!: Date;
 
-  @OneToMany(type => Question, question => question.poll, {
+  @Field(type => Poll)
+  @ManyToOne(type => Poll, poll => poll.id)
+  poll!: Promise<Poll>;
+
+  @OneToMany(type => Answer, answer => answer.question, {
     // eager: true,
     onDelete: 'CASCADE'
   })
-  @Field(type => [Question])
-  questions!: Promise<Question[]>;
+  @Field(type => [Answer])
+  answers!: Promise<Answer[]>;
 }
