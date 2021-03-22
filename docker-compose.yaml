@@ -21,5 +21,16 @@ services:
     restart: always
     environment: 
       PORT: 3030
+      TYPEORM_CONNECTION: postgres
+      TYPEORM_HOST: db
+      TYPEORM_USERNAME: poller
+      TYPEORM_PASSWORD: poller
+      TYPEORM_DATABASE: poller
+      TYPEORM_PORT: 5432
+      TYPEORM_SYNCHRONIZE: 'true'
+      TYPEORM_LOGGING: 'true'
+      TYPEORM_CHACE: true,
+      TYPEORM_ENTITIES: build/entity/**/*.js
+      TYPEORM_MIGRATIONS: build/migration/**/*.js
     ports:
     - 3030:3030
