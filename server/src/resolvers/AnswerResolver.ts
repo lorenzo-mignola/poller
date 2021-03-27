@@ -19,7 +19,7 @@ export class AnswerResolver {
     const newAnswer = new Answer();
     const question = await Question.findOne(questionId);
     if (question) {
-      newAnswer.question = Promise.resolve(question);
+      newAnswer.question = question;
       const insertResult = await Answer.insert(newAnswer);
       return Answer.findOne(insertResult.identifiers[0]);
     } else {

@@ -20,7 +20,7 @@ export class QuestionResolver {
     const newQuestion = new Question();
     const poll = await Poll.findOne(pollId);
     if (poll) {
-      newQuestion.poll = Promise.resolve(poll);
+      newQuestion.poll = poll;
       newQuestion.text = text;
       const insertResult = await Question.insert(newQuestion);
       return Question.findOne(insertResult.identifiers[0]);

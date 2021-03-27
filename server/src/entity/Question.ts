@@ -27,11 +27,10 @@ export class Question extends BaseEntity {
   updatedDate!: Date;
 
   @Field(type => Poll)
-  @ManyToOne(type => Poll, poll => poll.id)
-  poll!: Promise<Poll>;
+  @ManyToOne(type => Poll, poll => poll.id, { lazy: true })
+  poll!: Poll;
 
   @OneToMany(type => Answer, answer => answer.question, {
-    // eager: true,
     onDelete: 'CASCADE'
   })
   @Field(type => [Answer])

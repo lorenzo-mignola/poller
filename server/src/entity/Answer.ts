@@ -20,6 +20,6 @@ export class Answer extends BaseEntity {
   updatedDate!: Date;
 
   @Field(type => Question)
-  @ManyToOne(type => Question, question => question.id)
-  question!: Promise<Question>;
+  @ManyToOne(type => Question, question => question.id, { lazy: true })
+  question!: Question;
 }

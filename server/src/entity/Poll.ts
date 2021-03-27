@@ -25,7 +25,7 @@ export class Poll extends BaseEntity {
   updatedDate!: Date;
 
   @OneToMany(type => Question, question => question.poll, {
-    // eager: true,
+    lazy: true,
     onDelete: 'CASCADE'
   })
   @Field(type => [Question])

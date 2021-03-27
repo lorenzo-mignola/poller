@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3'
 
 services:
 
@@ -10,13 +10,13 @@ services:
       POSTGRES_USER: poller
       POSTGRES_DB: poller
     ports:
-    - 5432:5432
+      - "5432:5432"
     volumes:
-    - c:\docker-volumes\poller-sql:/var/lib/postgresql/data
+      - c:\docker-volumes\poller-sql:/var/lib/postgresql/data
 
   server:
     depends_on:
-    - db
+      - db
     build: ./server
     restart: always
     environment: 
@@ -30,7 +30,7 @@ services:
       TYPEORM_SYNCHRONIZE: 'true'
       TYPEORM_LOGGING: 'true'
       TYPEORM_CHACE: true,
-      TYPEORM_ENTITIES: build/entity/**/*.js
-      TYPEORM_MIGRATIONS: build/migration/**/*.js
+      TYPEORM_ENTITIES: ./build/entity/**/*.js
+      TYPEORM_MIGRATIONS: ./build/migration/**/*.js
     ports:
-    - 3030:3030
+      - "3030:3030"
