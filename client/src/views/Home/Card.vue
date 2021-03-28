@@ -1,12 +1,23 @@
 <template>
-  <el-card v-for="o in 4" :key="o" class="box-card" shadow="hover">
+  <el-card class="box-card" shadow="hover">
     <div class="text item">
-      {{ "List item " + o }}
+      {{ name }}
     </div>
   </el-card>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+  },
+});
+</script>
 
 <style lang="scss">
 .box-card {

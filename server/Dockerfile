@@ -15,4 +15,4 @@ COPY package.json ./
 COPY yarn.lock ./
 RUN yarn
 COPY --from=builder /app/build .
-CMD [ "node", "./build/index.js" ]
+CMD [ "node", "/app/index.js" ]

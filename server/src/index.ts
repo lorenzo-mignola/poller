@@ -16,7 +16,12 @@ const start = async () => {
     resolvers: [PollResolver, QuestionResolver, AnswerResolver],
     nullableByDefault: true
   });
-  const server = new ApolloServer({ schema });
+  const server = new ApolloServer({
+    schema,
+    cors: true,
+    introspection: true,
+    playground: true
+  });
 
   const { url } = await server.listen(process.env.PORT || 4000);
   logger.info(`Server is running, GraphQL Playground available at ${url}`);

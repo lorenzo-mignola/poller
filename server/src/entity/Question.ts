@@ -8,12 +8,13 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
+import QuestionInterface from '../../../types/Question.interface';
 import { Answer } from './Answer';
 import { Poll } from './Poll';
 
 @Entity()
 @ObjectType()
-export class Question extends BaseEntity {
+export class Question extends BaseEntity implements QuestionInterface {
   @PrimaryGeneratedColumn()
   @Field(type => ID)
   id!: number;

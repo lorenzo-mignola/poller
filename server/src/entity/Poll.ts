@@ -7,11 +7,12 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
+import PollInterface from '../../../types/Poll.interface';
 import { Question } from './Question';
 
 @Entity()
 @ObjectType()
-export class Poll extends BaseEntity {
+export class Poll extends BaseEntity implements PollInterface {
   @PrimaryGeneratedColumn()
   @Field(type => ID)
   id!: number;
