@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-import AnswerInterface from '../../../types/Answer.interface';
+import AnswerInterface from '../types/Answer.interface';
 import { Question } from './Question';
 
 @Entity()

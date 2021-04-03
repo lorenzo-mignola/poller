@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-import QuestionInterface from '../../../types/Question.interface';
+import QuestionInterface from '../types/Question.interface';
 import { Answer } from './Answer';
 import { Poll } from './Poll';
 

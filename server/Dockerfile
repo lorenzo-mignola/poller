@@ -14,5 +14,5 @@ ENV NODE_ENV=production
 COPY package.json ./
 COPY yarn.lock ./
 RUN yarn
-COPY --from=builder /app/build .
+COPY --from=builder /app/build ./
 CMD [ "node", "/app/index.js" ]

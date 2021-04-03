@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-import PollInterface from '../../../types/Poll.interface';
+import PollInterface from '../types/Poll.interface';
 import { Question } from './Question';
 
 @Entity()

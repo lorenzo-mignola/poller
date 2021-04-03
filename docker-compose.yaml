@@ -30,7 +30,7 @@ services:
       TYPEORM_SYNCHRONIZE: 'true'
       TYPEORM_LOGGING: 'true'
       TYPEORM_CHACE: true,
-      TYPEORM_ENTITIES: ./build/entity/**/*.js
-      TYPEORM_MIGRATIONS: ./build/migration/**/*.js
+      TYPEORM_ENTITIES: /app/entity/**/*.js
+      TYPEORM_MIGRATIONS: /app/migration/**/*.js
     ports:
       - "3030:3030"
