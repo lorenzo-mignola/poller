@@ -7,5 +7,5 @@ export default interface Poll {
 
   updatedDate: Date;
 
-  questions: Required<Question | Promise<Question[]>>;
+  questions: Required<Question[] | Promise<Question[]>>;
 }

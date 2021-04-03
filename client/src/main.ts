@@ -6,19 +6,11 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import apolloClient from './graphql/client';
 import router from './router';
-import store from './store';
+import store from './store/index';
 
-// const apolloProvider = new VueApollo({
-//   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//   // @ts-ignore
-//   defaultClient: apolloClient,
-// });
-
-// const app = createApp(App, { apolloProvider });
 const app = createApp(App);
 
 app.provide(DefaultApolloClient, apolloClient);
-// app.use(VueApolloOption);
 app.use(store);
 app.use(router);
 app.use(ElementPlus);

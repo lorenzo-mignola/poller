@@ -1,8 +1,18 @@
 import { createStore } from 'vuex';
 
-export default createStore({
-  state: {},
-  mutations: {},
+interface Store {
+  selectedQuestion: string | null
+}
+
+export default createStore<Store>({
+  state: {
+    selectedQuestion: null,
+  },
+  mutations: {
+    setSelectedQuestion(state, payload: string) {
+      state.selectedQuestion = payload;
+    },
+  },
   actions: {},
   modules: {},
 });

@@ -1,22 +1,22 @@
 <template>
   <Header />
   <AddPoll />
-  <span v-if="result && result.polls">
+  <span v-if="polls">
     <h3>Existing poll</h3>
-    <div class="card-container" v-for="poll in result.polls" :key="poll.id">
-      <Card :name="poll.name" />
+    <div class="card-container" v-for="poll in polls" :key="poll.id">
+      <Card :name="poll.name" :id="poll.id" />
     </div>
   </span>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useQuery } from '@vue/apollo-composable';
+import { useQuery, useResult } from '@vue/apollo-composable';
 import pollQuery from '@/graphql/pollQuery';
 import Header from './Header.vue';
 import Card from './Card.vue';
-import Poll from '../../../../types/Poll.interface';
 import AddPoll from './AddPoll.vue';
+import Poll from '../../../../server/src/types/Poll.interface';
 
 export default defineComponent({
   components: {
@@ -25,14 +25,17 @@ export default defineComponent({
     AddPoll,
   },
   setup() {
-    const { result } = useQuery<Poll[]>(pollQuery.GET_ALL_POLLS);
-    return { result };
+    const { result } = useQuery<{ polls: Poll[] }>(pollQuery.GET_ALL_POLLS);
+    const polls = useResult(result, null, (data: { polls: Poll[] }) => data.polls);
+
+    return { polls };
   },
 });
 </script>
 
 <style lang="scss">
-.card-container, h3 {
+.card-container,
+h3 {
   padding: 0 2rem;
 }
 </style>

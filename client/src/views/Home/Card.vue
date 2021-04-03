@@ -1,9 +1,11 @@
 <template>
-  <el-card class="box-card" shadow="hover">
-    <div class="text item">
-      {{ name }}
-    </div>
-  </el-card>
+  <router-link :to="`/poll/${id}`">
+    <el-card class="box-card" shadow="hover">
+      <div class="text item">
+        {{ name }}
+      </div>
+    </el-card>
+  </router-link>
 </template>
 
 <script lang="ts">
@@ -13,6 +15,10 @@ export default defineComponent({
   props: {
     name: {
       type: String,
+      required: true,
+    },
+    id: {
+      type: Number,
       required: true,
     },
   },
