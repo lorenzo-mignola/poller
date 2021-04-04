@@ -34,3 +34,10 @@ services:
       TYPEORM_MIGRATIONS: /app/migration/**/*.js
     ports:
       - "3030:3030"
+
+  client:
+    depends_on: 
+      - server
+    build: ./client
+    ports:
+      - "8080:80"

@@ -18,7 +18,7 @@ import { defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import Header from '@/components/Header.vue';
 import Confirm from '@/components/Confirm.vue';
-import Poll from '../../../../server/src/types/Poll.interface';
+import Poll from '@/types/Poll.interface';
 import pollQuery from '../../graphql/pollQuery';
 import Question from './Question.vue';
 import AddQuestion from '../../components/AddQuestion.vue';

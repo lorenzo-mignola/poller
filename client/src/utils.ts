@@ -1,4 +1,4 @@
-import Question from '../../server/src/types/Question.interface';
+import Question from '@/types/Question.interface';
 
 export interface AnswerForChart {
   votes: number;

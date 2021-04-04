@@ -13,10 +13,10 @@
 import { defineComponent } from 'vue';
 import { useQuery, useResult } from '@vue/apollo-composable';
 import pollQuery from '@/graphql/pollQuery';
+import Poll from '@/types/Poll.interface';
 import Header from './Header.vue';
 import Card from './Card.vue';
 import AddPoll from './AddPoll.vue';
-import Poll from '../../../../server/src/types/Poll.interface';
 
 export default defineComponent({
   components: {

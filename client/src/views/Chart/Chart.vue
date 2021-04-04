@@ -13,11 +13,11 @@ import {
 } from 'vue';
 import { useRoute } from 'vue-router';
 import Header from '@/components/Header.vue';
-import Poll from '../../../../server/src/types/Poll.interface';
+import Poll from '@/types/Poll.interface';
+import Question from '@/types/Question.interface';
 import pollQuery from '../../graphql/pollQuery';
 import useChart from './useChart';
 import { getAnswerForChart } from '../../utils';
-import Question from '../../../../server/src/types/Question.interface';
 
 export default defineComponent({
   components: {
