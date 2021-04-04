@@ -12,6 +12,9 @@ export default createStore<Store>({
     setSelectedQuestion(state, payload: string) {
       state.selectedQuestion = payload;
     },
+    cleanSelection(state) {
+      state.selectedQuestion = null;
+    },
   },
   actions: {},
   modules: {},

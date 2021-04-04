@@ -18,7 +18,6 @@ export default defineComponent({
   setup(props) {
     const store = useStore();
     const selectedQuestion = computed(() => store.state.selectedQuestion);
-    console.log('clg -> setup -> selectedQuestion', selectedQuestion);
     const type = computed(() => (selectedQuestion.value === props.id ? 'success' : 'info'));
     function setSelected() {
       if (selectedQuestion.value === props.id) {

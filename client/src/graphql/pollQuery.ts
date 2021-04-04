@@ -21,7 +21,22 @@ const GET_POLL = gql`
   }
 `;
 
+const GET_ANSWERS_PER_QUESTION = gql`
+  query Poll($id: Float!){
+    poll(id: $id) {
+      name
+      questions {
+        answers {
+          id
+        }
+        text
+      }
+    }
+  }
+`;
+
 export default {
   GET_ALL_POLLS,
   GET_POLL,
+  GET_ANSWERS_PER_QUESTION,
 };
